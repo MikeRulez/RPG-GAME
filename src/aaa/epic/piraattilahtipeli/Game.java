@@ -33,21 +33,19 @@ public class Game extends BasicGame {
         Input input = gc.getInput();
 
         if (input.isKeyDown(Input.KEY_A)) {
-            ukko.rotate(-0.3f * delta);
+            x -= 1.5f;
         }
 
-        if (input.isKeyDown(Input.KEY_D)) {
-            ukko.rotate(0.3f * delta);
+        else if (input.isKeyDown(Input.KEY_D)) {
+            x += 1.5f;
         }
         
-        if (input.isKeyDown(Input.KEY_W)) {
-            float hip = 0.4f * delta;
-            liike.play(0.1f, 1.0f);
-
-            float rotation = ukko.getRotation();
-
-            x += hip * Math.sin(Math.toRadians(rotation));
-            y -= hip * Math.cos(Math.toRadians(rotation));
+        else if (input.isKeyDown(Input.KEY_S)) {
+            y += 1.5f;
+        }
+        
+        else if (input.isKeyDown(Input.KEY_W)) {
+            y -= 1.5f;
         }
     }
 
