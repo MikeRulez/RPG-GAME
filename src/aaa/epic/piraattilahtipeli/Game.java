@@ -78,6 +78,7 @@ public class Game extends BasicGame {
             throws SlickException {
         AppGameContainer app = new AppGameContainer(new Game());
         app.setDisplayMode(800, 600, false);
+        app.setVSync(true);
         app.start();
     }
 }
