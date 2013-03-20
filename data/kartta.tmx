@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="80" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="DungeonCrawl_ProjectUtumnoTileset" tilewidth="32" tileheight="32">
+  <image source="DungeonCrawl_ProjectUtumnoTileset.png" width="2048" height="1536"/>
+ </tileset>
+ <layer name="Vesi" width="80" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAMA6Ae86+ugipkkNBLqqqqqqqqqqqqqqqqqqqq6vsDRMEvxA==
+  </data>
+ </layer>
+ <layer name="Maa" width="80" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt00EOwjAMRNFK3P9eHIsFC0RVaAN2vieeL2WN56lsm6vS/fb+3Hl7s0/PPbvqpWI488Z/7GhD8s4IN8qQvjPabpYhfWeWW6ZhhRtnuCn8P36503Yafkp2V2+uckeVO0dvp3+/uh3pFxFt922L7Wr6rWY30y8q2oswXNku0y862ml0ZxW3ynbR32A3t8hvsKvd2Xbb5fllRFtE++13ZUY7ZPplRxvYrp8fvV3Vj96s7EfvVbOjNyr60btU7ehNyn70HmU/eov9tJ7tath188uI3qTu18UwM3qbst3qhnT0fnW/o2gTZbujaCdVt5FsF5Pd4rKLc68eyqPv0A==
+  </data>
+ </layer>
+ <layer name="Vesiraja ala" width="80" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2EEOgjAQQFEW3v9onsm4IBiFSIfWts57O3adTylJlwUAANq733qvYF7axWkXp13Ms5t2MbrFaReXqV3tWTO1qynzf+LK3Jm7XaXbprSFdp/ONtEuxln33Xuj9Vm3Mprt0wTIyNlHL/YekJGzL067OO3Gk+WdZJmzhbVdq4b//G5+NdvrvbQ76npmbjrqWkfvOeq6jhx9+z0az9StROuOs+25qNI9eWZvZ+i2RxfYPAAC3U7B
+  </data>
+ </layer>
+ <layer name="Vesiraja ylä" width="80" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2ksShCAQBFEX3v9wnsi1GiIUQlcT+SLcSpv4mcVsG1wc+/XAt1IvWj6p95hrw5nPTO/5IxveO309MyPW/utcM6mzO1/vjIZ/rNFzjtHvg1H7Ev29il6/1ehmK3wj32Sb18nMdjVrZdnLqPdLlj4lK1xDFId2bzM4zFbiPp8z2q0l035mmhVrcb733Gdzns8Z3XS009FORzsd7XS00/D7REM3Hd3a8D+idvTS0ExHNx3tEIV7DwAAAAAAoN4JfklOlQ==
+  </data>
+ </layer>
+ <layer name="Vesiraja vasen oikea" width="80" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2juywyAMheEU3v/WnCVlVDBmHJyAEOgIzlfd4hbyP8bBj9eLUJzH9ff7eP4/upwVndjyUtOrBLXhzDWjbZd4NmyZ3XrO3m652Q2914tlu2RGQ4u5e+Yc0S03oqH1zJoZR3dLkNdHrmVOtvuG1i9Su6Rm5ijtZnbL/Zsd6TryxKud8OoXcb0+eToWtqszs99q7cSsfpZ7Y6R+YnTDlduJUf0i3I9Z+HWcmnlHPQtAbJdYnYO7nHN3Fufgru1E715653ZC22/Ha11JbQc5LvR3Kh5Q3oWxnV7EdsK7X9RuiVe/6N0Sj35s12aVXncj+63aLOHet8/u91y9kL8pioD99NhOj9c9Pf7m9uF+T4/P7fR4n6bn/XxKRO6K0K8kQlPUdiVIPSN1axHlm1h0yN/XRePxbp8I1Qf5p3IE
+  </data>
+ </layer>
+ <layer name="Vesiraja kulmat" width="80" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztmUsOgzAMRLvg/idrF7QXqlCFYEGVxNjjT+atWCCwXsbEwONBSA3W5Tj+LP/PIwdrh6fNJX3+6PF1RVSHyJ6RutvxdDhSu3aNd72dQTp8L/f6RQNNdzsIhxZ1R7n/y+ja2jVL1th63bTdeecMSUZ3IxnM1LPI3HnOXZm9eVPJXSuD2rVVcodmRndPpRqtZrsIWO4jWWZiSyQZrJw3a6zdRcxeq4d7Mziju15aDi3dZfbWgpkbY8shan+o5g5JJnfR5o1M7qJBd3LoTkZmb57PvszevKngDpm9Cr7Q0JkMepMzi7to7xyZ4Hd1OcxdXLT+10WF2ZODclcxgxFyV9GrNxmcRsheL5F8ZvI2AsJxVXdnLDzO4O0Kz3/7hJBafAFvJlX5
+  </data>
+ </layer>
+ <layer name="Ruohikko" width="80" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1m0OwiAURNEm3f+KGv1f8WNLSlJiUi0iLTDzmJu8DRynxGFQSimllCrbdfx+6ne3l9Np4+4yjBazk2G8FDsZfubftX/swj1kmOWmDb43N+3w63GDud+q/I51682vhF0vb2ApO+sbPPqt62mDNdysbrC2naUNtrCzssGWdux+re2Y/RDsWP1Q7Nj8av23s+iH5sbih7g5Fj9kN39Odua2h/69om6PxQ3NjskNzY7JbQKyY9sc0u7Y3JDszgAWrHY+Nj8ku9AFwIXVLjSP8WttjGyXWitLC3brau3Vol1qewzd8jv0Xuoeg9cst83Wjk5eWclMKaXq9wS713kI
+  </data>
+ </layer>
+ <layer name="Ruohikkoraja vasen oikea" width="80" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAGo+gAAB
+  </data>
+ </layer>
+</map>
