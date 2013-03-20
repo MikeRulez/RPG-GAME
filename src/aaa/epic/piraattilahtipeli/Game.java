@@ -1,9 +1,13 @@
 package aaa.epic.piraattilahtipeli;
 
 import org.newdawn.slick.*;
+import org.newdawn.slick.tiled.*;
 
 public class Game extends BasicGame {
 
+    public static final int WIDTH = 800;
+    public static final int HEIGHT = 600;
+    
     Image ukko = null;
     Image land = null;
     float x = 400;
@@ -11,16 +15,10 @@ public class Game extends BasicGame {
     float scale = 1;
     Sound liike = null;
     Music musiikki = null;
-    int WORLD_SIZE_X = 1600;
-    int WORLD_SIZE_Y = 1200;
-    int VIEWPORT_SIZE_X = 800;
-    int VIEWPORT_SIZE_Y = 600;
-    float camX = x - VIEWPORT_SIZE_X / 2;
-    float camY = y - VIEWPORT_SIZE_Y / 2;
-    float offsetMaxX = WORLD_SIZE_X - VIEWPORT_SIZE_X;
-    float offsetMaxY = WORLD_SIZE_Y - VIEWPORT_SIZE_Y;
-    float offsetMinX = 0;
-    float offsetMinY = 0;
+    TiledMap map; //The file that contain the world we are
+    Entity player; //The moving entity we will follow
+    Camera camera; //The camera we are going to use
+    int mapHeight, mapWidth;
 
     public Game() {
         super("Piraattilahti - return of the Pirates!");
@@ -29,55 +27,37 @@ public class Game extends BasicGame {
     @Override
     public void init(GameContainer gc)
             throws SlickException {
-        ukko = new Image("data/Ukko.png");
         land = new Image("data/land.jpg");
         liike = new Sound("data/engine2.ogg");
         musiikki = new Music("data/music.ogg");
         musiikki.play();
         musiikki.loop();
+        map = new TiledMap("data/kartta.tmx");
+	mapWidth = map.getWidth() * map.getTileWidth(); // Map size = Tile Size * number of Tiles
+	mapHeight = map.getHeight() * map.getTileHeight();
+        player = new Entity(50, 50, 32, 32, new Image("data/ukko.png"));
+	camera = new Camera(map, mapWidth, mapHeight);
     }
 
     @Override
-    public void update(GameContainer gc, int delta)
-            throws SlickException {
-        Input input = gc.getInput();
-
-        if (input.isKeyDown(Input.KEY_LEFT) || input.isKeyDown(Input.KEY_A)) {
-            x -= 2f;
-        } else if (input.isKeyDown(Input.KEY_RIGHT) || input.isKeyDown(Input.KEY_D)) {
-            x += 2f;
-        } else if (input.isKeyDown(Input.KEY_DOWN) || input.isKeyDown(Input.KEY_S)) {
-            y += 2f;
-        } else if (input.isKeyDown(Input.KEY_UP) || input.isKeyDown(Input.KEY_W)) {
-            y -= 2f;
-        }
-
-        if (this.camX > this.offsetMaxX) {
-            camX = offsetMaxX;
-        } else if (camX < offsetMinX) {
-            camX = offsetMinX;
-        }
-
-        if (camY > offsetMaxY) {
-            camY = offsetMaxY;
-        } else if (camY < offsetMinY) {
-            camY = offsetMinY;
-        }
-    }
-
+    public void update(GameContainer gc, int delta) throws SlickException {
+ 
+		player.update(gc, mapWidth, mapHeight, delta);
+	}
+ 
     @Override
-    public void render(GameContainer gc, Graphics g)
-            throws SlickException {
-        land.draw(0, 0);
-        ukko.draw(x, y, scale);
-        g.translate(camX, camY);
-
-    }
+    public void render(GameContainer gc, Graphics g) throws SlickException {
+ 
+		camera.translate(g, player);
+ 
+		map.render(0, 0);
+		player.render();
+	}
 
     public static void main(String[] args)
             throws SlickException {
         AppGameContainer app = new AppGameContainer(new Game());
-        app.setDisplayMode(800, 600, false);
+        app.setDisplayMode(WIDTH, HEIGHT, false);
         app.setVSync(true);
         app.start();
     }
