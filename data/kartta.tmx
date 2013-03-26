@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="80" height="50" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="DungeonCrawl_ProjectUtumnoTileset" tilewidth="32" tileheight="32">
-  <image source="DungeonCrawl_ProjectUtumnoTileset.png" width="2048" height="1536"/>
+  <image source="../examples/DungeonCrawl_ProjectUtumnoTileset.png" width="2048" height="1536"/>
  </tileset>
  <layer name="Vesi" width="80" height="50">
   <data encoding="base64" compression="zlib">

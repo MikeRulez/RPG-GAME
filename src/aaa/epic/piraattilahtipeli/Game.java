@@ -7,8 +7,7 @@ public class Game extends BasicGame {
 
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
-    
-    Image ukko = null;
+    Image[][] ukonKuvat;
     Image land = null;
     float x = 400;
     float y = 300;
@@ -33,26 +32,28 @@ public class Game extends BasicGame {
         musiikki.play();
         musiikki.loop();
         map = new TiledMap("data/kartta.tmx");
-	mapWidth = map.getWidth() * map.getTileWidth(); // Map size = Tile Size * number of Tiles
-	mapHeight = map.getHeight() * map.getTileHeight();
-        player = new Entity(50, 50, 32, 32, new Image("data/ukko.png"));
-	camera = new Camera(map, mapWidth, mapHeight);
+        mapWidth = map.getWidth() * map.getTileWidth(); // Map size = Tile Size * number of Tiles
+        mapHeight = map.getHeight() * map.getTileHeight();
+        ukonKuvat = new Image[4][3];
+        loadukonKuvat();
+        player = new Entity(50, 50, 32, 64, ukonKuvat);
+        camera = new Camera(map, mapWidth, mapHeight);
     }
 
     @Override
     public void update(GameContainer gc, int delta) throws SlickException {
- 
-		player.update(gc, mapWidth, mapHeight, delta);
-	}
- 
+
+        player.update(gc, mapWidth, mapHeight, delta);
+    }
+
     @Override
     public void render(GameContainer gc, Graphics g) throws SlickException {
- 
-		camera.translate(g, player);
- 
-		map.render(0, 0);
-		player.render();
-	}
+
+        camera.translate(g, player);
+
+        map.render(0, 0);
+        player.render();
+    }
 
     public static void main(String[] args)
             throws SlickException {
@@ -60,5 +61,13 @@ public class Game extends BasicGame {
         app.setDisplayMode(WIDTH, HEIGHT, false);
         app.setVSync(true);
         app.start();
+    }
+
+    private void loadukonKuvat() throws SlickException {
+        for (int y = 0; y < 4; y++) {
+            for (int x = 0; x < 3; x++) {
+                ukonKuvat[y][x] = new Image("data/Hero_" + y + x + ".png");
+            }
+        }
     }
 }
