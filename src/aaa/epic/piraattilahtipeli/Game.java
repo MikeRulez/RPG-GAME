@@ -36,7 +36,7 @@ public class Game extends BasicGame {
         mapHeight = map.getHeight() * map.getTileHeight();
         ukonKuvat = new Image[4][3];
         loadukonKuvat();
-        player = new Entity(50, 50, 32, 64, ukonKuvat);
+        player = new Entity(50, 50, 32, 32, ukonKuvat);
         camera = new Camera(map, mapWidth, mapHeight);
         ukonKuvat = new Image[4][3];
     }
