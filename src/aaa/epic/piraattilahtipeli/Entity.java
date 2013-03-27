@@ -25,6 +25,7 @@ public class Entity {
     public Entity(float x, float y, int width, int height, Image[][] ukonKuvat) {
         pos = new Vector2f(x, y);
         box = new Rectangle(x, y, width, height);
+        sprites = new Image[4][3];
         setSprites(ukonKuvat);
         this.sprite = sprites[S][F];
         imageSwitch = true;
@@ -38,7 +39,7 @@ public class Entity {
 
         if (input.isKeyDown(Input.KEY_W)) {
             direction = W;
-            trans.y = -0.5f * delta;
+            trans.y = -0.25f * delta;
             if (imageSwitch) {
                 sprite = sprites[W][L];
                 imageSwitch = false;
@@ -48,7 +49,7 @@ public class Entity {
             }
         } else if (input.isKeyDown(Input.KEY_S)) {
             direction = S;
-            trans.y = 0.5f * delta;
+            trans.y = 0.25f * delta;
             if (imageSwitch) {
                 sprite = sprites[S][L];
                 imageSwitch = false;
@@ -58,7 +59,7 @@ public class Entity {
             }
         } else if (input.isKeyDown(Input.KEY_D)) {
             direction = D;
-            trans.x = 0.5f * delta;
+            trans.x = 0.25f * delta;
             if (imageSwitch) {
                 sprite = sprites[D][L];
                 imageSwitch = false;
@@ -68,7 +69,7 @@ public class Entity {
             }
         } else if (input.isKeyDown(Input.KEY_A)) {
             direction = A;
-            trans.x = -0.5f * delta;
+            trans.x = -0.25f * delta;
             if (imageSwitch) {
                 sprite = sprites[A][L];
                 imageSwitch = false;
@@ -150,7 +151,6 @@ public class Entity {
         }
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 3; x++) {
-                System.out.println("Kävin täällä: " + y + x);
                 this.sprites[y][x] = ukonKuvat[y][x];
             }
         }
