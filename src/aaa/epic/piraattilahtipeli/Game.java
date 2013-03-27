@@ -31,7 +31,7 @@ public class Game extends BasicGame {
         musiikki = new Music("data/music.ogg");
         musiikki.play();
         musiikki.loop();
-        map = new TiledMap("data/kartta.tmx");
+        map = new TiledMap("data/map.tmx");
         mapWidth = map.getWidth() * map.getTileWidth(); // Map size = Tile Size * number of Tiles
         mapHeight = map.getHeight() * map.getTileHeight();
         ukonKuvat = new Image[4][3];
