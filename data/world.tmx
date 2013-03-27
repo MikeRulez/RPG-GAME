@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="150" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="DungeonCrawl_ProjectUtumnoTileset" tilewidth="32" tileheight="32">
+  <image source="DungeonCrawl_ProjectUtumnoTileset.png" width="2048" height="1536"/>
+ </tileset>
+ <layer name="Vesi" width="150" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAMA6Ae8++ufmpjByT0kqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqo+Ojnjrbg=
+  </data>
+ </layer>
+ <layer name="Maa" width="150" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt0jFuRDEMA9EAuf+9cqxUaVIkWFvaofTnAexNix8fkiTpt6/PvyO96r9NuTO96mRT7kx/qdqUG9OPrk25rWfr3pV7ex5qU25rN3pXbmwnektucid6D+5tL/r27mwn+tbuay/6zm5rJ/rG7msn+rYJUT36pklRLfqeSVEd+pZpUQ36jonRPfqGidE9+oap0R36fqnRHfp+ydEd+n7J0Tn6dsnROfp2ydE5+nbpmYzsR98tPRMl9KPvlp5k6f3o26Un0YRu9N2mJMWUnvS9JoU2qSd9q0khTetJ32pSSNO60realneb2pO+07S8A92xoiv99mnpRver7Eq/f1o60J3cFZ8OdCd3xacD3amjK/32aelAd3JXGalEd3FXOalEd3FXOalEd3FXOalEd3FXOalEd3FXOalEd3FXOalEd3FXOalEd+nqSr97YirRXdxVTirRXTq60m+emift6qQv/d6pcVfzOyXGXc3vlBh3Nb9TWqrRfdxVRtzVjk5J6UB3clez/nbTDbb1SUknupubyv/XE3Q/d5X/ryfofu4q+09v0D2r+tPvnZJ3oXu6q+x/PUX3dFfZ/3qK7umucv/0Bt3VXeX+6S26b0V/+s0T8m50X3eV+acV6N63/el3p4dEd3dXWX/aYVp/+nbJSTSlO3271EyQ3J++X2omSe1O3zAtkyV1p++YFtWhb5kS1aNvmhD1oO/qpnajb+yO9qLv7qZ2om/vpvaiN+Cm9qK34Kaejd6Ne9qL3pB7eo7T27sjdXFPkiRJkiRJkm59A8QYASU=
+  </data>
+ </layer>
+</map>

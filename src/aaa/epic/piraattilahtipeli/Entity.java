@@ -37,7 +37,7 @@ public class Entity {
 
         Input input = gc.getInput();
 
-        if (input.isKeyDown(Input.KEY_W)) {
+        if (input.isKeyDown(Input.KEY_W) || input.isKeyDown(Input.KEY_UP)) {
             direction = W;
             trans.y = -0.25f * delta;
             if (imageSwitch) {
@@ -47,7 +47,7 @@ public class Entity {
                 sprite = sprites[W][R];
                 imageSwitch = true;
             }
-        } else if (input.isKeyDown(Input.KEY_S)) {
+        } else if (input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN)) {
             direction = S;
             trans.y = 0.25f * delta;
             if (imageSwitch) {
@@ -57,7 +57,7 @@ public class Entity {
                 sprite = sprites[S][R];
                 imageSwitch = true;
             }
-        } else if (input.isKeyDown(Input.KEY_D)) {
+        } else if (input.isKeyDown(Input.KEY_D) || input.isKeyDown(Input.KEY_RIGHT)) {
             direction = D;
             trans.x = 0.25f * delta;
             if (imageSwitch) {
@@ -67,7 +67,7 @@ public class Entity {
                 sprite = sprites[D][R];
                 imageSwitch = true;
             }
-        } else if (input.isKeyDown(Input.KEY_A)) {
+        } else if (input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_LEFT)) {
             direction = A;
             trans.x = -0.25f * delta;
             if (imageSwitch) {

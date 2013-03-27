@@ -20,7 +20,7 @@ public class Game extends BasicGame {
     int mapHeight, mapWidth;
 
     public Game() {
-        super("Piraattilahti - return of the Pirates!");
+        super("Piraattilahti - Return of the Pirates!");
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Game extends BasicGame {
         musiikki = new Music("data/music.ogg");
         musiikki.play();
         musiikki.loop();
-        map = new TiledMap("data/map.tmx");
+        map = new TiledMap("data/world.tmx");
         mapWidth = map.getWidth() * map.getTileWidth(); // Map size = Tile Size * number of Tiles
         mapHeight = map.getHeight() * map.getTileHeight();
         ukonKuvat = new Image[4][3];
