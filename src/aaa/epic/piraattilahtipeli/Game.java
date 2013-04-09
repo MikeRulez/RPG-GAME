@@ -8,7 +8,6 @@ public class Game extends BasicGame {
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
     Image[][] ukonKuvat;
-    Image land = null;
     float x = 400;
     float y = 300;
     float scale = 1;
@@ -18,18 +17,17 @@ public class Game extends BasicGame {
     Entity player; //The moving entity we will follow
     Camera camera; //The camera we are going to use
     int mapHeight, mapWidth;
+    Image world;
 
     public Game() {
-        super("Piraattilahti - Return of the Pirates!");
+        super("");
     }
 
     @Override
     public void init(GameContainer gc)
             throws SlickException {
-        land = new Image("data/land.jpg");
-        liike = new Sound("data/engine2.ogg");
-        musiikki = new Music("data/music.ogg");
-        musiikki.play();
+        world = new Image("data/world.png");
+        musiikki = new Music("data/music/saari1.ogg");
         musiikki.loop();
         map = new TiledMap("data/world.tmx");
         mapWidth = map.getWidth() * map.getTileWidth(); // Map size = Tile Size * number of Tiles
@@ -39,6 +37,7 @@ public class Game extends BasicGame {
         player = new Entity(50, 50, 32, 32, ukonKuvat);
         camera = new Camera(map, mapWidth, mapHeight);
         ukonKuvat = new Image[4][3];
+        Collision c = new Collision(map);
     }
 
     @Override

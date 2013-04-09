@@ -21,6 +21,7 @@ public class Entity {
     private final static int R = 2;
     private final static int F = 1;
     protected int direction = 0;
+    private final static float SPEED = 0.25f;
 
     public Entity(float x, float y, int width, int height, Image[][] ukonKuvat) {
         pos = new Vector2f(x, y);
@@ -39,7 +40,7 @@ public class Entity {
 
         if (input.isKeyDown(Input.KEY_W) || input.isKeyDown(Input.KEY_UP)) {
             direction = W;
-            trans.y = -0.25f * delta;
+            trans.y = -SPEED * delta;
             if (imageSwitch) {
                 sprite = sprites[W][L];
                 imageSwitch = false;
@@ -49,7 +50,7 @@ public class Entity {
             }
         } else if (input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN)) {
             direction = S;
-            trans.y = 0.25f * delta;
+            trans.y = SPEED * delta;
             if (imageSwitch) {
                 sprite = sprites[S][L];
                 imageSwitch = false;
@@ -59,7 +60,7 @@ public class Entity {
             }
         } else if (input.isKeyDown(Input.KEY_D) || input.isKeyDown(Input.KEY_RIGHT)) {
             direction = D;
-            trans.x = 0.25f * delta;
+            trans.x = SPEED * delta;
             if (imageSwitch) {
                 sprite = sprites[D][L];
                 imageSwitch = false;
@@ -69,7 +70,7 @@ public class Entity {
             }
         } else if (input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_LEFT)) {
             direction = A;
-            trans.x = -0.25f * delta;
+            trans.x = -SPEED * delta;
             if (imageSwitch) {
                 sprite = sprites[A][L];
                 imageSwitch = false;
@@ -99,7 +100,7 @@ public class Entity {
         if (trans.x != 0 && trans.y != 0) {
             trans.set(trans.x / 1.5f, trans.y / 1.5f);
         }
-
+        
         if (pos.x + trans.x > 32 && pos.x + trans.x < (mapWidth - 64)) {
             pos.x += trans.x;
         }
