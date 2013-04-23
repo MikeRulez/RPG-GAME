@@ -42,7 +42,7 @@ public class Entity {
         Input input = gc.getInput();
 
         if (input.isKeyDown(Input.KEY_W) || input.isKeyDown(Input.KEY_UP)) {
-            if (!c.isBlocked(pos.x, pos.y - SPEED * delta) && !c.isBlocked(pos.x + w, pos.y - SPEED * delta)){
+            if (!c.isBlocked(pos.x + 5, pos.y - SPEED * delta) && !c.isBlocked(pos.x + w - 5, pos.y - SPEED * delta)){
             trans.y = -SPEED * delta;
             }
             direction = W;
@@ -54,7 +54,7 @@ public class Entity {
                 imageSwitch = true;
             }
         } else if (input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN)) {
-            if (!c.isBlocked(pos.x, pos.y + h - SPEED * delta) && !c.isBlocked(pos.x + w, pos.y + h - SPEED * delta)){
+            if (!c.isBlocked(pos.x + 5, pos.y + h + SPEED * delta) && !c.isBlocked(pos.x + w - 5, pos.y + h + SPEED * delta)){
             trans.y = SPEED * delta;
             }
             direction = S;
@@ -66,7 +66,7 @@ public class Entity {
                 imageSwitch = true;
             }
         } else if (input.isKeyDown(Input.KEY_D) || input.isKeyDown(Input.KEY_RIGHT)) {
-            if (!c.isBlocked(pos.x + w, pos.y - SPEED * delta) && !c.isBlocked(pos.x + w, pos.y + h - SPEED * delta)){
+            if (!c.isBlocked(pos.x + SPEED * delta + w, pos.y + 5 ) && !c.isBlocked(pos.x + w + SPEED * delta, pos.y + h - 5)){
             trans.x = SPEED * delta;
             }
             direction = D;
@@ -78,7 +78,7 @@ public class Entity {
                 imageSwitch = true;
             }
         } else if (input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_LEFT)) {
-            if (!c.isBlocked(pos.x, pos.y - SPEED * delta) && !c.isBlocked(pos.x, pos.y + h - SPEED * delta)){
+            if (!c.isBlocked(pos.x - SPEED * delta, pos.y + 5 ) && !c.isBlocked(pos.x - SPEED * delta, pos.y + h - 5)){
             trans.x = -SPEED * delta;
             }
             direction = A;
