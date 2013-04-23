@@ -32,15 +32,17 @@ public class Entity {
         imageSwitch = true;
     }
 
-    public void update(GameContainer gc, int mapWidth, int mapHeight, int delta) {
+    public void update(GameContainer gc, int mapWidth, int mapHeight, int delta, Collision c) {
 
         Vector2f trans = new Vector2f(0, 0);
 
         Input input = gc.getInput();
 
         if (input.isKeyDown(Input.KEY_W) || input.isKeyDown(Input.KEY_UP)) {
-            direction = W;
+            if (c.isBlocked(pos.x + W -4, pos.y - delta * SPEED) && c.isBlocked(pos.x + 4, pos.y - delta * SPEED)){
             trans.y = -SPEED * delta;
+            }
+            direction = W;
             if (imageSwitch) {
                 sprite = sprites[W][L];
                 imageSwitch = false;
@@ -49,8 +51,10 @@ public class Entity {
                 imageSwitch = true;
             }
         } else if (input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN)) {
+            if (c.isBlocked(pos.x + S -4, pos.y - delta * SPEED) && c.isBlocked(pos.x + 4, pos.y - delta * SPEED)){
+            trans.y = -SPEED * delta;
+            }
             direction = S;
-            trans.y = SPEED * delta;
             if (imageSwitch) {
                 sprite = sprites[S][L];
                 imageSwitch = false;
@@ -59,8 +63,10 @@ public class Entity {
                 imageSwitch = true;
             }
         } else if (input.isKeyDown(Input.KEY_D) || input.isKeyDown(Input.KEY_RIGHT)) {
-            direction = D;
+            if (c.isBlocked(pos.x + D -4, pos.y - delta * SPEED) && c.isBlocked(pos.x + 4, pos.y - delta * SPEED)){
             trans.x = SPEED * delta;
+            }
+            direction = D;
             if (imageSwitch) {
                 sprite = sprites[D][L];
                 imageSwitch = false;
@@ -69,8 +75,10 @@ public class Entity {
                 imageSwitch = true;
             }
         } else if (input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_LEFT)) {
-            direction = A;
+            if (c.isBlocked(pos.x + D -4, pos.y - delta * SPEED) && c.isBlocked(pos.x + 4, pos.y - delta * SPEED)){
             trans.x = -SPEED * delta;
+            }
+            direction = A;
             if (imageSwitch) {
                 sprite = sprites[A][L];
                 imageSwitch = false;

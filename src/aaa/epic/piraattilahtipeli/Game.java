@@ -18,6 +18,7 @@ public class Game extends BasicGame {
     Camera camera; //The camera we are going to use
     int mapHeight, mapWidth;
     Image world;
+    Collision c;
 
     public Game() {
         super("");
@@ -34,16 +35,16 @@ public class Game extends BasicGame {
         mapHeight = map.getHeight() * map.getTileHeight();
         ukonKuvat = new Image[4][3];
         loadukonKuvat();
-        player = new Entity(50, 50, 32, 32, ukonKuvat);
+        player = new Entity(200, 200, 32, 32, ukonKuvat);
         camera = new Camera(map, mapWidth, mapHeight);
         ukonKuvat = new Image[4][3];
-        Collision c = new Collision(map);
+        c = new Collision(map);
     }
 
     @Override
     public void update(GameContainer gc, int delta) throws SlickException {
 
-        player.update(gc, mapWidth, mapHeight, delta);
+        player.update(gc, mapWidth, mapHeight, delta, c);
     }
 
     @Override

@@ -3,18 +3,17 @@ package aaa.epic.piraattilahtipeli;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
-public class Collision {
 
     // Kartan mitat tiileillä mitattuna
-    private static final int NUMBEROFTILESINAROW = 10;
-    private static final int NUMBEROFTILESINACOLUMN = 10;
-    private static final int NUMBEROFLAYERS = 2;
+    public class Collision {
+
+    // Kartan mitat tiileillä mitattuna
     private boolean[][] blocked;
     private TiledMap map;
 
     public Collision(TiledMap map) throws SlickException {
         this.map = map;
-        blocked = new boolean[NUMBEROFTILESINAROW][NUMBEROFTILESINACOLUMN];
+        blocked = new boolean[map.getWidth()][map.getHeight()];
         initializeBlocked();
     }
 
@@ -25,11 +24,11 @@ public class Collision {
     }
 
     private void initializeBlocked() {
-        for (int l = 0; l < NUMBEROFLAYERS; l++) {
+        for (int l = 0; l < map.getLayerCount(); l++) {
             String layerValue = map.getLayerProperty(l, "blocked", "false");
             if (layerValue.equals("true")) {
-                for (int c = 0; c < NUMBEROFTILESINACOLUMN; c++) {
-                    for (int r = 0; r < NUMBEROFTILESINAROW; r++) {
+                for (int c = 0; c < map.getWidth(); c++) {
+                    for (int r = 0; r < map.getHeight(); r++) {
                         if (map.getTileId(c, r, l) != 0) {
                             blocked[c][r] = true;
                         }
