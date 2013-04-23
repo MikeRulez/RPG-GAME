@@ -22,6 +22,7 @@ public class Entity {
     private final static int F = 1;
     protected int direction = 0;
     private final static float SPEED = 0.25f;
+    private  int w, h;
 
     public Entity(float x, float y, int width, int height, Image[][] ukonKuvat) {
         pos = new Vector2f(x, y);
@@ -30,6 +31,8 @@ public class Entity {
         setSprites(ukonKuvat);
         this.sprite = sprites[S][F];
         imageSwitch = true;
+        h = sprite.getHeight();
+        w = sprite.getWidth();
     }
 
     public void update(GameContainer gc, int mapWidth, int mapHeight, int delta, Collision c) {
@@ -39,7 +42,7 @@ public class Entity {
         Input input = gc.getInput();
 
         if (input.isKeyDown(Input.KEY_W) || input.isKeyDown(Input.KEY_UP)) {
-            if (c.isBlocked(pos.x + W -4, pos.y - delta * SPEED) && c.isBlocked(pos.x + 4, pos.y - delta * SPEED)){
+            if (!c.isBlocked(pos.x, pos.y - SPEED * delta) && !c.isBlocked(pos.x + w, pos.y - SPEED * delta)){
             trans.y = -SPEED * delta;
             }
             direction = W;
@@ -51,8 +54,8 @@ public class Entity {
                 imageSwitch = true;
             }
         } else if (input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN)) {
-            if (c.isBlocked(pos.x + S -4, pos.y - delta * SPEED) && c.isBlocked(pos.x + 4, pos.y - delta * SPEED)){
-            trans.y = -SPEED * delta;
+            if (!c.isBlocked(pos.x, pos.y + h - SPEED * delta) && !c.isBlocked(pos.x + w, pos.y + h - SPEED * delta)){
+            trans.y = SPEED * delta;
             }
             direction = S;
             if (imageSwitch) {
@@ -63,7 +66,7 @@ public class Entity {
                 imageSwitch = true;
             }
         } else if (input.isKeyDown(Input.KEY_D) || input.isKeyDown(Input.KEY_RIGHT)) {
-            if (c.isBlocked(pos.x + D -4, pos.y - delta * SPEED) && c.isBlocked(pos.x + 4, pos.y - delta * SPEED)){
+            if (!c.isBlocked(pos.x + w, pos.y - SPEED * delta) && !c.isBlocked(pos.x + w, pos.y + h - SPEED * delta)){
             trans.x = SPEED * delta;
             }
             direction = D;
@@ -75,7 +78,7 @@ public class Entity {
                 imageSwitch = true;
             }
         } else if (input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_LEFT)) {
-            if (c.isBlocked(pos.x + D -4, pos.y - delta * SPEED) && c.isBlocked(pos.x + 4, pos.y - delta * SPEED)){
+            if (!c.isBlocked(pos.x, pos.y - SPEED * delta) && !c.isBlocked(pos.x, pos.y + h - SPEED * delta)){
             trans.x = -SPEED * delta;
             }
             direction = A;

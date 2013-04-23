@@ -15,6 +15,7 @@ import org.newdawn.slick.tiled.TiledMap;
         this.map = map;
         blocked = new boolean[map.getWidth()][map.getHeight()];
         initializeBlocked();
+        sopBlocked();
     }
 
     public boolean isBlocked(float x, float y) {
@@ -34,6 +35,14 @@ import org.newdawn.slick.tiled.TiledMap;
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    private void sopBlocked() {
+        for (int c = 0; c < map.getWidth(); c++) {
+            for (int r = 0; r < map.getHeight(); r++) {
+                System.out.println(c + " " + r + " " + blocked[c][r]);
             }
         }
     }
