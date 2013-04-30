@@ -25,7 +25,7 @@ public class Entity {
     private int maxhp, hp;
     private Font hpFont;
     private TrueTypeFont hpTTF;
-    private Color hpVari = new Color(255, 255, 255);
+    private Color hpVari = new Color(0, 0, 0);
 
     public Entity(float x, float y, int width, int height, Image[][] ukonKuvat, int maxhp) {
         pos = new Vector2f(x, y);
@@ -131,7 +131,7 @@ public class Entity {
     public void render() {
         sprite.draw(pos.x, pos.y);
         String h = hp + "/" + maxhp;
-        hpTTF.drawString(pos.x, pos.y - 12, h, hpVari);
+        hpTTF.drawString(pos.x + 7, pos.y - 12, h, hpVari);
     }
 
     // Getters and Setters
