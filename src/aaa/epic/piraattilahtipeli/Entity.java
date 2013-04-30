@@ -1,8 +1,7 @@
 package aaa.epic.piraattilahtipeli;
 
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.Input;
+import java.awt.Font;
+import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 
@@ -22,9 +21,13 @@ public class Entity {
     private final static int F = 1;
     protected int direction = 0;
     private final static float SPEED = 0.25f;
-    private  int w, h;
+    private int w, h;
+    private int maxhp, hp;
+    private Font hpFont;
+    private TrueTypeFont hpTTF;
+    private Color hpVari = new Color(255, 255, 255);
 
-    public Entity(float x, float y, int width, int height, Image[][] ukonKuvat) {
+    public Entity(float x, float y, int width, int height, Image[][] ukonKuvat, int maxhp) {
         pos = new Vector2f(x, y);
         box = new Rectangle(x, y, width, height);
         sprites = new Image[4][3];
@@ -33,6 +36,10 @@ public class Entity {
         imageSwitch = true;
         h = sprite.getHeight();
         w = sprite.getWidth();
+        this.maxhp = maxhp;
+        hp = maxhp;
+        hpFont = new Font("Verdana", Font.PLAIN, 10);
+        hpTTF = new TrueTypeFont(hpFont, true);
     }
 
     public void update(GameContainer gc, int mapWidth, int mapHeight, int delta, Collision c) {
@@ -119,11 +126,12 @@ public class Entity {
         if (pos.y + trans.y > 32 && pos.y + trans.y < (mapHeight - 64)) {
             pos.y += trans.y;
         }
-
     }
 
     public void render() {
         sprite.draw(pos.x, pos.y);
+        String h = hp + "/" + maxhp;
+        hpTTF.drawString(pos.x, pos.y - 12, h, hpVari);
     }
 
     // Getters and Setters
@@ -154,17 +162,22 @@ public class Entity {
     public Image getSprite() {
         return sprite;
     }
+    
+    public int getHP() {
+        return hp;
+    }
+    
+    public int getMaxHP() {
+        return maxhp;
+    }
 
     private void setSprites(Image[][] ukonKuvat) {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.println(ukonKuvat[i][j]);
-            }
-        }
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 3; x++) {
                 this.sprites[y][x] = ukonKuvat[y][x];
             }
         }
     }
+ 
+    
 }

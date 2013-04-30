@@ -35,7 +35,7 @@ public class Game extends BasicGame {
         mapHeight = map.getHeight() * map.getTileHeight();
         ukonKuvat = new Image[4][3];
         loadukonKuvat();
-        player = new Entity(200, 200, 32, 32, ukonKuvat);
+        player = new Entity(200, 200, 32, 32, ukonKuvat, 10);
         camera = new Camera(map, mapWidth, mapHeight);
         ukonKuvat = new Image[4][3];
         c = new Collision(map);
