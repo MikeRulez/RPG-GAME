@@ -1,4 +1,4 @@
-package aaa.epic.piraattilahtipeli;
+package Piraattipeli;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.tiled.*;
